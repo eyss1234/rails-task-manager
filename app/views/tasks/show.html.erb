@@ -1,0 +1,18 @@
+<h1 class="mt-5" style="font-size: 38px;"><%= @task.title %></h1>
+
+<div class="mt-4 bg-light">
+  <p class="pt-4 ps-3" style="font-style: italic;"><%= @task.details %></p>
+  <p class="ps-3" style="font-size:14px;">
+  <% if @task.completed == true %>
+    <i class="fa-regular fa-square-check"></i>
+  <% else %>
+    <i class="fa-regular fa-square"></i>
+  <% end %>
+  This task is completed</p>
+  <div class="ps-3 pb-3" style="font-size:14px;"><%= link_to "Delete",
+    task_path(@task),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+</div>
+<div class="mt-5" style="font-size:14px;"><%= link_to "Back to list", tasks_path(@tasks)%>
+</div>
+
